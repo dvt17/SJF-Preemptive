@@ -1,4 +1,3 @@
-from display import *
 class Process:
     def __init__(self, pid,arrivalTime, burstTime):
         self.pid = pid                          # Process ID
