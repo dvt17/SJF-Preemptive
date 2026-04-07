@@ -33,7 +33,7 @@ class Display:
         self.pidEntry.grid(row=0, column=1, padx=5, pady=5)
         self.atEntry.grid(row=0, column=3, padx=5, pady=5)
         self.btEntry.grid(row=0, column=5, padx=5, pady=5)
-
+        #Create button
         addData = tk.Button(inputFrame, text="Add", command=self.addProcess, bg="#54F25A", fg="White")
         clearData = tk.Button(inputFrame, text="Clear", command=self.clearProcess, bg="#FFDD56", fg="White")
         calculatorData = tk.Button(inputFrame, text="Calculator", command=self.caculatorProcess, bg="#4579E1", fg="White")
@@ -45,19 +45,16 @@ class Display:
         calculatorData.grid(row=0, column=8, padx=8, pady=8)
         loadData.grid(row=0, column=9, padx=8, pady=8)
         quitProgram.grid(row=0, column=10, padx=8, pady=8)
-
+        #Create data table
         tableFrame = tk.Frame(self.root)
         tableFrame.pack(fill="both", expand=True, padx=10, pady=10)
-
         columns = ("PID", "AT", "BT", "CT", "TAT", "WT", "RT")
         self.tree = ttk.Treeview(tableFrame, columns=columns, show="headings", height=8)
-
         for col in columns:
             self.tree.heading(col, text=col)
             self.tree.column(col, anchor="center", width=100)
-
         self.tree.pack(fill="both", expand=True)
-
+        #Create a frame to display the results
         avgFrame = tk.Frame(self.root)
         avgFrame.pack(fill="x", padx=10, pady=5)
         self.avgTATLabel = tk.Label(avgFrame, text="Average TAT: 0.0 ms", font=("Arial", 10, "bold"))
@@ -66,7 +63,7 @@ class Display:
         self.avgWTLabel.pack(side="left", padx=20)
         self.avgRTLabel = tk.Label(avgFrame, text="Average RT: 0.0 ms", font=("Arial", 10, "bold"))
         self.avgRTLabel.pack(side="left", padx=20)
-
+        #Create display Gannt chart
         ganttFrame = tk.LabelFrame(self.root, text="Gantt Chart (SFRT)", font=("Arial", 10, "bold"), padx=10, pady=10)
         ganttFrame.pack(fill="x", padx=10, pady=5)
 
